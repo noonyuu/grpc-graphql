@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    container_name: prc-api
+    image: prc-api-server-image:latest
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/root/app
+    command: sh -c "go run ." # コンテナ起動時に実行するコマンド
+    ports:
+      - "8080:8080"
+    tty: true # コンテナの永続化
+    environment:
+      - TZ=Asia/Tokyo
