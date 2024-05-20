@@ -1,0 +1,41 @@
+# 全件取得
+query GetUser {
+	users {
+		id
+		name
+		age
+	}
+}
+
+# 作成
+mutation createUser($attributes: NewUser!) {
+  createUser(input: $attributes) {
+    id
+    name
+    age
+  }
+}
+
+{
+	"attributes": {
+		"name": "test",
+		"age": 20
+	}
+}
+
+# 更新
+mutation updateUser (
+  $attributes: UserAttributes!
+) {
+  updateUser(input: $attributes) {
+    id name age
+  }
+}
+
+{
+  "attributes": {
+    "id": "uuid",
+    "name" : "testtest",
+    "age" : 22
+  }
+}
