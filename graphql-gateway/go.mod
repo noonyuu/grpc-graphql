@@ -1,4 +1,4 @@
-module github.com/noonyuu/grpc-graphql/gateway
+module github.com/noonyuu/golang-web-server-sample/graphql-gateway
 
 go 1.19
 

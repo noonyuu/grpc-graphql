@@ -7,7 +7,7 @@ package graph
 import (
 	"context"
 
-	"github.com/noonyuu/grpc-graphql/gateway/graph/model"
+	"github.com/noonyuu/golang-web-server-sample/graphql-gateway/graph/model"
 )
 
 // CreateUser is the resolver for the createUser field.

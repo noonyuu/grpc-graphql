@@ -14,7 +14,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/noonyuu/grpc-graphql/gateway/graph/model"
+	"github.com/noonyuu/golang-web-server-sample/graphql-gateway/graph/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )
@@ -231,7 +231,7 @@ func (ec *executionContext) field_Mutation_createUser_args(ctx context.Context, 
 	var arg0 model.NewUser
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNewUser2githubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐNewUser(ctx, tmp)
+		arg0, err = ec.unmarshalNNewUser2githubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐNewUser(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -246,7 +246,7 @@ func (ec *executionContext) field_Mutation_updateUser_args(ctx context.Context, 
 	var arg0 model.UserAttributes
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNUserAttributes2githubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUserAttributes(ctx, tmp)
+		arg0, err = ec.unmarshalNUserAttributes2githubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUserAttributes(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -336,7 +336,7 @@ func (ec *executionContext) _Mutation_createUser(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.User)
 	fc.Result = res
-	return ec.marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createUser(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -399,7 +399,7 @@ func (ec *executionContext) _Mutation_updateUser(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.User)
 	fc.Result = res
-	return ec.marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_updateUser(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -462,7 +462,7 @@ func (ec *executionContext) _Query_users(ctx context.Context, field graphql.Coll
 	}
 	res := resTmp.([]*model.User)
 	fc.Result = res
-	return ec.marshalNUser2ᚕᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUserᚄ(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚕᚖgithubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUserᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_users(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -2695,7 +2695,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				return ec.OperationContext.RootResolverMiddleware(ctx, innerFunc)
 			}
 
-			out.Concurrently(i, func(ctx context.Context) graphql.Marshaler {
+			out.Concurrently(i, func(context.Context) graphql.Marshaler {
 				return rrm(innerCtx)
 			})
 		case "__type":
@@ -3126,7 +3126,7 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 	return res
 }
 
-func (ec *executionContext) unmarshalNNewUser2githubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐNewUser(ctx context.Context, v interface{}) (model.NewUser, error) {
+func (ec *executionContext) unmarshalNNewUser2githubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐNewUser(ctx context.Context, v interface{}) (model.NewUser, error) {
 	res, err := ec.unmarshalInputNewUser(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
@@ -3146,11 +3146,11 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 	return res
 }
 
-func (ec *executionContext) marshalNUser2githubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2githubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v model.User) graphql.Marshaler {
 	return ec._User(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUserᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUserᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.User) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -3174,7 +3174,7 @@ func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑg
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUser(ctx, sel, v[i])
+			ret[i] = ec.marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUser(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -3194,7 +3194,7 @@ func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑg
 	return ret
 }
 
-func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -3204,7 +3204,7 @@ func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋnoonyuuᚋgrpcᚑgrap
 	return ec._User(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNUserAttributes2githubᚗcomᚋnoonyuuᚋgrpcᚑgraphqlᚋgatewayᚋgraphᚋmodelᚐUserAttributes(ctx context.Context, v interface{}) (model.UserAttributes, error) {
+func (ec *executionContext) unmarshalNUserAttributes2githubᚗcomᚋnoonyuuᚋgolangᚑwebᚑserverᚑsampleᚋgraphqlᚑgatewayᚋgraphᚋmodelᚐUserAttributes(ctx context.Context, v interface{}) (model.UserAttributes, error) {
 	res, err := ec.unmarshalInputUserAttributes(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }

@@ -2,7 +2,7 @@ version: "3"
 services:
   gateway:  #サービス名
     build:
-      context: ./gateway
+      context: ./graphql-gateway
       dockerfile: Dockerfile
     container_name: gateway  #コンテナの名前
     tty: true  #コンテナの永続化
@@ -10,3 +10,19 @@ services:
       - '8080:8080'
     volumes:  #マウントディレクトリ
       - .:/app
+
+  # proto:
+  #   build:
+  #     context: ./proto
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/app
+  
+  # service:
+  #   build:
+  #     context: ./service
+  #     dockerfile: Dockerfile
+  #   container_name: service
+  #   tty: true
+  #   volumes:
+  #     - .:/app
