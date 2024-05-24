@@ -1,28 +1,31 @@
 version: "3"
 services:
-  gateway:  #サービス名
+  graphql:
     build:
-      context: ./graphql-gateway
+      context: ./graphql
       dockerfile: Dockerfile
     container_name: gateway  #コンテナの名前
     tty: true  #コンテナの永続化
+    command: air
     ports:
       - '8080:8080'
     volumes:  #マウントディレクトリ
       - .:/app
+    depends_on:
+      - grpc
 
-  # proto:
-  #   build:
-  #     context: ./proto
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - .:/app
+  proto:
+    build:
+      context: ./proto
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
   
-  # service:
-  #   build:
-  #     context: ./service
-  #     dockerfile: Dockerfile
-  #   container_name: service
-  #   tty: true
-  #   volumes:
-  #     - .:/app
+  grpc:
+    build:
+      context: ./grpc
+      dockerfile: Dockerfile
+    container_name: service
+    tty: true
+    volumes:
+      - .:/app
