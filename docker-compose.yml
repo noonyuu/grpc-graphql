@@ -29,3 +29,30 @@ services:
     tty: true
     volumes:
       - .:/app
+  
+  graphql-db: 
+    image: mysql:8.0
+    container_name: graphql-db
+    environment:
+      - MYSQL_ROOT_HOST=${DB_ROOT_HOST}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
+      - TZ=${TZ}
+    ports:
+      - "3306:3306"
+    volumes:
+      - .db/my.cnf:/etc/my.cnf
+    tty: true
+    stdin_open: true
+  
+  appwrite:
+    image: appwrite/appwrite:1.1.1
+    container_name: appwrite_install
+    entrypoint: ["install"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./appwrite:/usr/src/code/appwrite:rw
+    tty: true
+    stdin_open: true
