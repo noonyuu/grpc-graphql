@@ -1,1 +1,1 @@
-../../proto/user-service/github.com/noonyuu/grpc-graphql/grpc-user-service/pb/user-service.pb.go
+../../proto/user-service/github.com/noonyuu/grpc-graphql/grpc/pb/user-service.pb.go
