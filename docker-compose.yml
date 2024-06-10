@@ -30,29 +30,36 @@ services:
     volumes:
       - .:/app
   
-  graphql-db: 
+  theater-db:
     image: mysql:8.0
-    container_name: graphql-db
+    container_name: theater-db
     environment:
-      - MYSQL_ROOT_HOST=${DB_ROOT_HOST}
-      - MYSQL_DATABASE=${DB_NAME}
-      - MYSQL_USER=${DB_USER}
-      - MYSQL_PASSWORD=${DB_PASS}
-      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
-      - TZ=${TZ}
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: theater
+      MYSQL_USER: theater
+      MYSQL_PASSWORD: theater
     ports:
       - "3306:3306"
+
+  theater-api:
+    build:
+      context: ./theater-api
+      dockerfile: Dockerfile
     volumes:
-      - .db/my.cnf:/etc/my.cnf
-    tty: true
-    stdin_open: true
-  
-  appwrite:
-    image: appwrite/appwrite:1.1.1
-    container_name: appwrite_install
-    entrypoint: ["install"]
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./appwrite:/usr/src/code/appwrite:rw
-    tty: true
-    stdin_open: true
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "mysql://${DB_USER}:${DB_PASS}@graphql-db:3306/${DB_NAME}"
+    depends_on:
+      - graphql-db
+
+  # connectお試し
+  # connect-go-example:
+  #   build:
+  #     context: ./connect-go-example
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/app
+  #   ports:
+  #     - "3001:3001"
