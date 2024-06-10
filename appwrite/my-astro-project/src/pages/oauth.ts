@@ -4,7 +4,7 @@ import { createAdminClient, SESSION_COOKIE } from "../server/appwrite";
 export const POST: APIRoute = async ({ redirect, url }) => {
   const { account } = createAdminClient();
 
-  const redirectUrl = await account.createOAuth2Token("github", `${url.origin}/oauth`, `${url.origin}/signin`);
+  const redirectUrl = await account.createOAuth2Token("google", `${url.origin}/oauth`, `${url.origin}/signin`);
 
   return redirect(redirectUrl);
 };
